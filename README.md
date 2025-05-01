@@ -1,27 +1,45 @@
-# ZigzagPortfolio
+# 🎨 Yassin's Creative Portfolio – Where UI Meets Bold Storytelling 🚀
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
+Welcome to the official repository of a bold, interactive, and AI-ready portfolio that redefines front-end design. Built with ❤️ using **Angular**, **GSAP**, and **SCSS**, this site merges creative storytelling with high-performance UI and playful interactions.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🔍 Overview
 
-## Code scaffolding
+This portfolio is more than just a personal site – it's a playground for modern UI/UX ideas:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🖼️ Sticky, vibrant interface elements  
+- 🎨 Striking, colorful design language  
+- 🧠 Experimental interactivity and animations  
+- 🤖 Future-ready AI integration possibilities  
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Tech Stack
 
-## Running unit tests
+- **Framework:** Angular v18  
+- **Styling:** SCSS  
+- **Animations:** GSAP (GreenSock)  
+- **Performance:** Lazy loading, code-splitting  
+- **AI Integration:** Coming soon...
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📸 Screenshots
 
-## Further help
+- Coming soon...
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+---
+
+## 🧠 About
+
+Designed and built by **Yassin** – a passionate front-end developer with a vision for expressive interfaces and futuristic design tools.  
+Follow me on [LinkedIn](https://www.linkedin.com/in/yassin-mohamed/) or [Stack Overflow](https://stackoverflow.com/users/17715540/yassin-mo)
+
+---
+
+## 📄 License
+
+MIT © 2025 Yassin
