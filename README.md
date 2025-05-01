@@ -24,6 +24,11 @@ This portfolio is more than just a personal site – it's a playground for moder
 - **AI Integration:** Coming soon...
 
 ---
+## 📈 Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/b463bde85f2ea735eba5c9d8a6c4805bd3dbabab.svg "Repobeats analytics image")
+
+--
 
 
 ## 📸 Screenshots
