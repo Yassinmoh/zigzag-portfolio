@@ -1,82 +1,81 @@
-import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-zigzag-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './zigzag-section.component.html',
-  styleUrl: './zigzag-section.component.scss'
+  styleUrls: ['./zigzag-section.component.scss'],
 })
 export class ZigzagSectionComponent implements AfterViewInit {
-  constructor(private el: ElementRef) { }
+  @ViewChild('introSection') introSection!: ElementRef;
+  @ViewChild('portfolioSection') portfolioSection!: ElementRef;
+  @ViewChild('footerSection') footerSection!: ElementRef;
+
+  constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
+    gsap.registerPlugin(ScrollTrigger);
 
-    // First horizontal scroll (pages 1-3)
-    const firstSection = this.el.nativeElement.querySelector('.horizontal-section.first');
-    const firstContent = firstSection.querySelector('.horizontal-content');
-    const firstScrollLength = firstContent.scrollWidth - window.innerWidth;
-    const tracker = this.el.nativeElement.querySelector('#tracker');
-    const path = this.el.nativeElement.querySelector('#track-path');
-    const totalScrollLength = document.body.scrollHeight - window.innerHeight;
+    // Intro Section (Horizontal: 2 halves)
+    const introContent = this.introSection.nativeElement.querySelector('.horizontal-content');
+    if (introContent) {
+      const introWidth = introContent.offsetWidth - window.innerWidth;
+      gsap.to(introContent, {
+        x: -introWidth,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.introSection.nativeElement,
+          start: 'top top',
+          end: '+=150%', // Longer duration for smooth transition
+          scrub: 0.5,
+          pin: true,
+          snap: 1 / 1, // Snap to each halve
+          invalidateOnRefresh: true,
+        },
+      });
+    }
 
+    // Portfolio Section (Horizontal: 4 pages)
+    const portfolioContent = this.portfolioSection.nativeElement.querySelector('.horizontal-content');
+    if (portfolioContent) {
+      const portfolioWidth = portfolioContent.offsetWidth - window.innerWidth;
+      gsap.to(portfolioContent, {
+        x: -portfolioWidth,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.portfolioSection.nativeElement,
+          start: 'top top',
+          end: '+=300%', // Longer duration for 4 pages
+          scrub: 0.5,
+          pin: true,
+          snap: 1 / 3, // Snap to each page
+          invalidateOnRefresh: true,
+        },
+      });
+    }
 
-    gsap.to(firstContent, {
-      x: -firstScrollLength,
-      duration: 2.5,
-      ease: "power4.out",
-      scrollTrigger: {
-        markers:true,
-        trigger: firstSection,
-        start: 'top top',
-        end: () => `+=${firstContent.scrollWidth}`,
-        scrub: 2,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      }
-    });
+    // Footer Section (Horizontal: Text animation)
+    const footerText = this.footerSection.nativeElement.querySelector('#footer .content h1');
+    if (footerText) {
+      const footerWidth = footerText.offsetWidth - window.innerWidth;
+      gsap.to(footerText, {
+        x: -footerWidth,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.footerSection.nativeElement,
+          start: 'top top',
+          end: '+=100%',
+          scrub: 0.5,
+          pin: true,
+          invalidateOnRefresh: true,
+        },
+      });
+    }
 
-    // Second horizontal scroll (pages 10-12)
-    const secondSection = this.el.nativeElement.querySelector('.horizontal-section.second');
-    const secondContent = secondSection.querySelector('.horizontal-content');
-    const secondScrollLength = secondContent.scrollWidth - window.innerWidth;
-
-    gsap.to(secondContent, {
-      x: -secondScrollLength,
-      duration: 2.5,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: secondSection,
-        start: 'top top',
-        end: () => `+=${secondContent.scrollWidth}`,
-        scrub: 2,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      }
-    });
-
-    gsap.to(tracker, {
-      motionPath: {
-        path: path,
-        align: path,
-        autoRotate: false,
-        alignOrigin: [0.5, 0.5]
-      },
-      ease: 'none',
-      scrollTrigger: {
-        trigger: this.el.nativeElement.querySelector('body'),
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true,
-        invalidateOnRefresh: true,
-      }
-    });
+    // Refresh ScrollTrigger to handle pinning overlaps
+    ScrollTrigger.refresh();
   }
 }

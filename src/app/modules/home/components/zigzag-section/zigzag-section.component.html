@@ -1,33 +1,50 @@
-<div class="sticky-map">
-    <svg width="300" height="50" viewBox="0 0 300 50" xmlns="http://www.w3.org/2000/svg">
-        <!-- Example zigzag path -->
-        <path id="track-path" d="M10 40 L50 40 L50 10 L100 10 L100 40 L150 40 L150 10 L200 10 L200 40 L250 40 L250 10"
-            stroke="#999" stroke-width="4" fill="none" />
-        <circle id="tracker" r="6" fill="#4a90e2" />
-    </svg>
-</div>
-
-<div style="position: relative;">
-    <section class="horizontal-section first">
-        <div class="horizontal-content">
-            <div class="page">page 1</div>
-            <div class="page">page 2</div>
-            <div class="page">page 3</div>
+<div class="wrapper">
+    <!-- Intro Section (Horizontal: 2 halves) -->
+    <section class="horizontal-section intro" #introSection>
+      <div class="horizontal-content" id="intro">
+        <div class="page halve">
+          <div class="content">Welcome to My Portfolio</div>
         </div>
-    </section>
-
-    <section class="vertical-section">
-        <div class="page">page 4</div>
-    </section>
-
-    <section class="horizontal-section second">
-        <div class="horizontal-content">
-            <div class="page">page 5</div>
-            <div class="page">page 6</div>
+        <div class="page halve">
+          <div class="content">Creative Developer</div>
         </div>
+      </div>
     </section>
-
-    <section class="vertical-section">
-        <div class="page">Footer</div>
+  
+    <!-- Notes & About Section (Vertical: 2 pages) -->
+    <section class="vertical-section notes-about">
+      <div class="page" id="notes">
+        <div class="content">Notes: My Thoughts & Ideas</div>
+      </div>
+      <div class="page" id="about">
+        <div class="content">About: My Journey</div>
+      </div>
     </section>
-</div>
+  
+    <!-- Certifications, Experience, Projects, Contacts Section (Horizontal: 4 pages) -->
+    <section class="horizontal-section portfolio" #portfolioSection>
+      <div class="horizontal-content" id="portfolio">
+        <div class="page" id="certifications">
+          <div class="content">Certifications</div>
+        </div>
+        <div class="page" id="experience">
+          <div class="content">Experience</div>
+        </div>
+        <div class="page" id="projects">
+          <div class="content">Projects</div>
+        </div>
+        <div class="page" id="contacts">
+          <div class="content">Contacts</div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Footer Section (Horizontal: 1 page with text animation) -->
+    <section class="vertical-section footer" #footerSection>
+      <div id="footer" class="page">
+        <div class="content">
+          <h1>Footer</h1>
+        </div>
+      </div>
+    </section>
+  </div>
