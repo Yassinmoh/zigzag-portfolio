@@ -1,0 +1,202 @@
+// Layout Design System
+// This SCSS file provides a flexible and responsive layout system using CSS Grid and Flexbox.
+// It includes utility classes for common layout patterns, suitable for building modern web interfaces.
+
+// ---------------------
+// Configuration Variables
+// ---------------------
+$grid-columns: 12; // Number of columns in the grid system
+$gutter: 1.5rem; // Spacing between grid and flex items
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// ---------------------
+// Grid System
+// ---------------------
+// Base container for grid layouts
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $gutter;
+}
+
+// Grid container setup
+.grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: $gutter;
+}
+
+// Grid column spans (1 to 12 columns)
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+// Responsive column classes for different breakpoints
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @for $i from 1 through $grid-columns {
+      .col-#{$name}-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+}
+
+// Grid utility classes
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-no-gap {
+  gap: 0;
+}
+
+// ---------------------
+// Flexbox System
+// ---------------------
+// Flex container setup
+.flex {
+  display: flex;
+  gap: $gutter;
+}
+
+// Flex direction utilities
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+// Flex wrap utilities
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+// Flex alignment utilities
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+// Flex item utilities
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+// Responsive flex utilities
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    .flex-#{$name}-row {
+      flex-direction: row;
+    }
+    .flex-#{$name}-column {
+      flex-direction: column;
+    }
+    .align-#{$name}-center {
+      align-items: center;
+    }
+    .justify-#{$name}-center {
+      justify-content: center;
+    }
+  }
+}
+
+// ---------------------
+// Utility Classes
+// ---------------------
+// Margin and padding utilities
+@for $i from 0 through 5 {
+  .m-#{$i} {
+    margin: #{$i * 0.5rem};
+  }
+  .p-#{$i} {
+    padding: #{$i * 0.5rem};
+  }
+  // Margin axis utilities
+  .mx-#{$i} {
+    margin-left: #{$i * 0.5rem};
+    margin-right: #{$i * 0.5rem};
+  }
+  .my-#{$i} {
+    margin-top: #{$i * 0.5rem};
+    margin-bottom: #{$i * 0.5rem};
+  }
+  // Margin logical properties
+  .ms-#{$i} {
+    margin-inline-start: #{$i * 0.5rem};
+  }
+  .me-#{$i} {
+    margin-inline-end: #{$i * 0.5rem};
+  }
+  // Padding axis utilities
+  .px-#{$i} {
+    padding-left: #{$i * 0.5rem};
+    padding-right: #{$i * 0.5rem};
+  }
+  .py-#{$i} {
+    padding-top: #{$i * 0.5rem};
+    padding-bottom: #{$i * 0.5rem};
+  }
+  // Padding logical properties
+  .ps-#{$i} {
+    padding-inline-start: #{$i * 0.5rem};
+  }
+  .pe-#{$i} {
+    padding-inline-end: #{$i * 0.5rem};
+  }
+}
+
+// Centering content
+.center {
+  display: grid;
+  place-items: center;
+}
