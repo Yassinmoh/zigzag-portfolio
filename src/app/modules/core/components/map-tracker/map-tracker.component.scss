@@ -1,9 +1,16 @@
 .sticky-map {
     position: fixed;
     top: 0.5rem;
-    width: 8vw;
+    width: 33vw; // Default for mobile
     height: 6vh;
-    left: calc(100vw - 10vw);
+    left: calc(100vw - 40vw);
+
+    @media screen and (min-width: 768px) {
+        width: 10vw; // For larger screens
+        left: calc(100vw - 13vw);
+
+    }
+
     background: #232323;
     display: flex;
     justify-content: center;

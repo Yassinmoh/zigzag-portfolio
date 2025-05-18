@@ -23,8 +23,7 @@ export class MapTrackerComponent implements AfterViewInit {
       return;
     }
 
-    console.log("tracker",this.tracker?.nativeElement);
-    const pagesCount = 9;
+    const pagesCount = 7.5;
 
     gsap.to(this.tracker.nativeElement, {
       motionPath: {
