@@ -1,0 +1,51 @@
+// ==============================
+// _typography.scss
+// ==============================
+
+
+// Utility Classes (FONT SIZES) 
+.huge {
+    @include textStyle($font-size-4xl);
+}
+
+.large {
+    @include textStyle($font-size-3xl);
+}
+
+.medium {
+    @include textStyle($font-size-2xl);
+}
+
+.small {
+    @include textStyle($font-size-xl);
+}
+
+.x-small {
+    @include textStyle($font-size-lg);
+}
+
+.tiny {
+    @include textStyle($font-size-base);
+}
+
+.micro {
+    @include textStyle($font-size-sm);
+}
+
+// Utility Classes (FONT FAMILIES) 
+
+.display-font {
+    font-family: 'NeueHaasDisplayRoman', sans-serif;
+}
+
+.light-font {
+    font-family: 'NeueHaasDisplayLight', sans-serif;
+}
+
+.special-font {
+    font-family: 'MoonieEyes', cursive;
+}
+
+.body-font {
+    font-family: 'PowerGrotesk-Regular', sans-serif;
+}
